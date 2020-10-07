@@ -1,0 +1,24 @@
+{
+  "name": "soups",
+  "version": "1.0.0",
+  "description": "A restaurant application to slurp soup.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lambaa94/Soups.git"
+  },
+  "author": "James Lamb",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Lambaa94/Soups/issues"
+  },
+  "homepage": "https://github.com/Lambaa94/Soups#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "mysql": "^2.18.1"
+  }
+}

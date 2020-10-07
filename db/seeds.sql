@@ -1,0 +1,1 @@
+INSERT INTO soups (soup_name) VALUES ('New England Clam Chowder'), ('Italian Wedding'),('Chicken Noodle')
