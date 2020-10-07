@@ -1,4 +1,5 @@
 var mysql = require("mysql");
+require("dotenv").config();
 
 var con = mysql.createConnection({
     host: "localhost",
@@ -8,11 +9,11 @@ var con = mysql.createConnection({
     user: "root",
 
     password: process.env.SQL_PASS,
-    database: "employee_tracker_db"
+    database: "soups_db"
 
 });
 
 con.connect(function (err) {
     if (err) throw err;
-    mainMenu()
+    console.log("connected")
 });
