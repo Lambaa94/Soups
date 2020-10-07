@@ -6,6 +6,6 @@ USE soups_db;
 CREATE TABLE soups(
     id INT AUTO_INCREMENT NOT NULL,
     soup_name VARCHAR(100) NOT NULL,
-    slurped BOOLEAN,
+    slurped BOOLEAN DEFAULT FALSE,
     PRIMARY KEY(id)
 );

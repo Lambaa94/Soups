@@ -1,7 +1,7 @@
 var mysql = require("mysql");
 require("dotenv").config();
 
-var con = mysql.createConnection({
+var connection = mysql.createConnection({
     host: "localhost",
 
     port: 3306,
@@ -13,7 +13,9 @@ var con = mysql.createConnection({
 
 });
 
-con.connect(function (err) {
+connection.connect(function (err) {
     if (err) throw err;
     console.log("connected")
 });
+
+module.exports = connection;
