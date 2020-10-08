@@ -1,8 +1,66 @@
-{{!-- Place to show soups with Slurp Button
 
+<ul>
+{{#each soups}}
+{{#unless slurped}}
+<li>{{ soup_name }}
+<button data-id="{{id}}" class="slurpSoupBtn">SLURP IT</button>
+</li>
+{{/unless}}
+{{/each}}
+</ul>
 
-Place to put text of soups
+<ul>
+{{#each soups}}
+{{#if slurped}}
+<li>{{ soup_name }}
+</li>
+{{/if}}
+{{/each}}
+</ul>
 
-place to put the submit button
+<h2>Add A Soup</h2>
+<form id="addSoupForm" class="button-size">
+  <textarea id="soupText" type="text" name="soup"></textarea>
+  <button type="submit">Save Soup!</button>
+</form>
+<script type="text/javascript">
+$(document).ready(function() {
+    // POST/ADD
+    $("#addSoupForm").on("submit", function(event) {
+      event.preventDefault();
 
- --}}
+      const newSoup = {
+        soup_name: $("#soupText").val().trim()
+      }
+      
+      //SEND POST
+      $.ajax("/api/soups", {
+        method: "POST",
+        data: newSoup
+      }).then(function() {
+        console.log("Soup added successfully!");
+
+        window.location = "/";
+      });
+    });
+
+    // PUT/UPDATE
+    $(".slurpSoupBtn").on("click", function(event) {
+      event.preventDefault();
+
+      const soupId = $(this).data("id");
+      console.log(soupId, "Here is the")
+
+      $.ajax("/api/soups/" + soupId, {
+        method: "PUT",
+        data: {
+          slurped: 1
+        }
+      }).then(function() {
+        console.log("The Soup has been slurped!");
+
+        window.location = "/";
+      });
+    })
+});
+</script>
