@@ -1,43 +1,78 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">SLURP DA SOUP</h1>
+    <p class="lead">ADD A SOUP</p>
+    <form id="addSoupForm" class="button-size">
+      <input id="soupText" type="text" name="soup"></input>
+      <button type="submit" class="btn btn-primary m-3">Save Soup!</button>
+    </form>
+  </div>
+</div>
 
-<ul>
-{{#each soups}}
-{{#unless slurped}}
-<li>{{ soup_name }}
-<button data-id="{{id}}" class="slurpSoupBtn">SLURP IT</button>
-</li>
-{{/unless}}
-{{/each}}
-</ul>
 
-<ul>
-{{#each soups}}
-{{#if slurped}}
-<li>{{ soup_name }}
-</li>
-{{/if}}
-{{/each}}
-</ul>
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+      <h3>SOUP TO SLURP</h3>
+      <ol>
+        {{#each soups}}
+        {{#unless slurped}}
+        <li>{{ soup_name }}
+          <button data-id="{{id}}" class="slurpSoupBtn btn btn-primary">SLURP IT</button>
+        </li>
+        {{/unless}}
+        {{/each}}
+      </ol>
+    </div>
 
-<h2>Add A Soup</h2>
-<form id="addSoupForm" class="button-size">
-  <textarea id="soupText" type="text" name="soup"></textarea>
-  <button type="submit">Save Soup!</button>
-</form>
+    <div class="col-6">
+      <h3>SLURPED SOUP</h3>
+      <ol>
+        {{#each soups}}
+        {{#if slurped}}
+        <li>{{ soup_name }}
+          {{!-- <button data-id="{{id}}" class="deletebtn">DELETE IT</button> --}}
+        </li>
+        {{/if}}
+        {{/each}}
+      </ol>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <script type="text/javascript">
-$(document).ready(function() {
+
+  $(document).ready(function () {
     // POST/ADD
-    $("#addSoupForm").on("submit", function(event) {
+    $("#addSoupForm").on("submit", function (event) {
       event.preventDefault();
 
       const newSoup = {
         soup_name: $("#soupText").val().trim()
       }
-      
+
       //SEND POST
       $.ajax("/api/soups", {
         method: "POST",
         data: newSoup
-      }).then(function() {
+      }).then(function () {
         console.log("Soup added successfully!");
 
         window.location = "/";
@@ -45,7 +80,7 @@ $(document).ready(function() {
     });
 
     // PUT/UPDATE
-    $(".slurpSoupBtn").on("click", function(event) {
+    $(".slurpSoupBtn").on("click", function (event) {
       event.preventDefault();
 
       const soupId = $(this).data("id");
@@ -56,11 +91,11 @@ $(document).ready(function() {
         data: {
           slurped: 1
         }
-      }).then(function() {
+      }).then(function () {
         console.log("The Soup has been slurped!");
 
         window.location = "/";
       });
     })
-});
+  });
 </script>
