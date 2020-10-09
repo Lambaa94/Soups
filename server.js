@@ -2,8 +2,6 @@ var express = require("express");
 var exphbs = require("express-handlebars");
 const path = require('path')
 
-// Importing connection if needed //
-// var connection = require("./config/connection");
 
 var app = express();
 

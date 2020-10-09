@@ -89,12 +89,12 @@
       });
     });
 
-    // PUT/UPDATE
+    // PUT/SLURP
     $(".slurpSoupBtn").on("click", function (event) {
       event.preventDefault();
 
       const soupId = $(this).data("id");
-      console.log(soupId, "Here is the")
+     
 
       $.ajax("/api/soups/" + soupId, {
         method: "PUT",
@@ -113,7 +113,7 @@
       event.preventDefault();
 
       const id = $(this).data("id");
-      console.log(id)
+      
 
       var deleteSoup = {
         id: id

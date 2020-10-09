@@ -20,7 +20,7 @@ router.get("/", function (req, res) {
 router.post("/api/soups", function (req, res) {
     const newSoup = req.body;
 
-    console.log(newSoup, "Here is the new soup");
+    // console.log(newSoup, "Here is the new soup");
 
     soups.create([newSoup.soup_name], function (result) {
         console.log(result, "the result")
@@ -34,7 +34,7 @@ router.put("/api/soups/:id", function (req, res) {
 
     var id = req.params.id;
 
-    console.log(id, "Here is the id")
+    // console.log("slurp", id)
 
     soups.update(id, function (result) {
 
@@ -49,7 +49,8 @@ router.put("/api/soups/:id", function (req, res) {
 
 router.delete("/api/soups/:id", function (req, res) {
     var id = req.body.id;
-    console.log(id, "delete")
+    
+    // console.log(id, "delete")
 
     soups.delete(id, function (result) {
 
