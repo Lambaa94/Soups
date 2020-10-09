@@ -23,7 +23,7 @@ router.post("/api/soups", function (req, res) {
     // console.log(newSoup, "Here is the new soup");
 
     soups.create([newSoup.soup_name], function (result) {
-        console.log(result, "the result")
+        
         res.json({ soup_name: result.soup_name })
 
     });
