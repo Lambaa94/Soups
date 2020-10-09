@@ -34,7 +34,22 @@ var orm = {
         });
     },
 
+    deleteOne: function(table, colName, value, cb){
+        var queryString = "DELETE FROM ?? WHERE ?? = ?"
+    
+        connection.query(queryString [table, colName, value, cb], function (err, result) {
+            if (err) {
+                throw err;
+            }
+            cb(result)
+            
+        });
+    }
 
 };
 
+
+
+//DELETE FROM ?? WHERE ?? = ?
+//DELETE FROM soups WHERE id = 1
 module.exports = orm;

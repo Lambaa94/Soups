@@ -1,10 +1,10 @@
 <div class="jumbotron jumbotron-fluid">
   <div class="container">
-    <h1 class="display-4">SLURP DA SOUP</h1>
-    <p class="lead">ADD A SOUP</p>
-    <form id="addSoupForm" class="button-size">
+    <h1 class="display-4 text-center">SLURP DA SOUP</h1>
+    <p class="lead text-center">ADD A SOUP</p>
+    <form id="addSoupForm" class="button-size text-center">
       <input id="soupText" type="text" name="soup"></input>
-      <button type="submit" class="btn btn-primary m-3">Save Soup!</button>
+      <button type="submit" class="btn btn-primary m-3 fas fa-utensil-spoon"> Save Soup!</button>
     </form>
   </div>
 </div>
@@ -13,26 +13,44 @@
 <div class="container">
   <div class="row">
     <div class="col-6">
-      <h3>SOUP TO SLURP</h3>
+      <h3 class="slurpTitle border border-primary rounded-pill text-center">SOUP TO SLURP</h3>
       <ol>
         {{#each soups}}
         {{#unless slurped}}
-        <li>{{ soup_name }}
-          <button data-id="{{id}}" class="slurpSoupBtn btn btn-primary">SLURP IT</button>
-        </li>
+        <section class="row mb-1 pb-1">
+          <section class="col-6 float-left">
+            <li class="soupText border border-primary rounded-pill text-center">{{ soup_name }}</li>
+          </section>
+          <section class="col-6 float-right">
+
+            <button data-id="{{id}}" class="btn btn-primary">SLURP IT</button>
+
+          </section>
+
+        </section>
+
         {{/unless}}
         {{/each}}
       </ol>
     </div>
 
+
     <div class="col-6">
-      <h3>SLURPED SOUP</h3>
+      <h3 class="slurpTitle border border-primary rounded-pill text-center">SLURPED SOUP</h3>
       <ol>
         {{#each soups}}
         {{#if slurped}}
-        <li>{{ soup_name }}
-          {{!-- <button data-id="{{id}}" class="deletebtn">DELETE IT</button> --}}
-        </li>
+        <section class="row mb-1 pb-1">
+          <section class="col-5 float-left">
+            <li class="soupText border border-danger rounded-pill mb-1 pb-1 text-center">{{ soup_name }}</li>
+          </section>
+          <section class="col-5 float-right">
+
+            <button data-id="{{id}}" class="deleteSoupBtn btn btn-primary">X</button>
+
+          </section>
+
+        </section>
         {{/if}}
         {{/each}}
       </ol>

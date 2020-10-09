@@ -15,8 +15,13 @@ const soups = {
     },
     update: function (id, cb) {
         orm.updateOne("soups", "slurped", "1", "id", id, function (result) {
-            
-           
+              
+            cb(result);
+        });
+    },
+    delete: function (id, cb) {
+        orm.deleteOne("soups", "id", id, function (result) {
+
             cb(result);
         });
     }

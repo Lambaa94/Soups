@@ -1,3 +1,21 @@
 body{
-    background-image: url("/public/assets/img/slurpingSoup.jpg");
+    background-image: url("/assets/img/soup.png");
+    background-size: auto;
+
+}
+
+.jumbotron {
+    background-color: #3e30253f;
+    background-image: inherit;
+    
+}
+
+.soupText {
+    background-image: url("/assets/img/cork-board.png");
+    font-weight: bold;
+}
+
+.slurpTitle {
+    background-image: url("/assets/img/cork-board.png");
+    font-weight: 900
 }

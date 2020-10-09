@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // Use public CSS
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname, '/public')));
 
 // To use handlebars
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
