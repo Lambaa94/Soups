@@ -50,11 +50,11 @@ router.put("/api/soups/:id", function (req, res) {
 router.delete("/api/soups/:id", function (req, res) {
     var id = req.body.id;
     
-    // console.log(id, "delete")
+    console.log(id, "delete")
 
     soups.delete(id, function (result) {
 
-        if (result.changedRows == 0) {
+        if (result.affectedRows == 0) {
             return res.status(404).end();
 
         } else {

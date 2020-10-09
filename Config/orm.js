@@ -39,11 +39,11 @@ var orm = {
     deleteOne: function (table, colName, value, cb) {
         var queryString = "DELETE FROM ?? WHERE ?? = ?"
 
-        connection.query(queryString, [table, colName, value, cb], function (err, result) {
+        connection.query(queryString, [table, colName, value], function (err, result) {
             if (err) {
                 throw err;
             }
-            // console.log("We're in delete")
+            console.log("We're in delete")
             cb(result)
 
         });
