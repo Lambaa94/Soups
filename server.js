@@ -1,5 +1,6 @@
 var express = require("express");
 var exphbs = require("express-handlebars");
+const path = require('path')
 
 // Importing connection if needed //
 // var connection = require("./config/connection");
@@ -20,15 +21,11 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 
-
-
 // Import Routes
 var router = require("./controllers/soups_controller");
 
-//TRAVERSY MEDIA
-// app.use('/', require("./controllers/soups_controller"))
 
-//???
+
 // Use express routes
 app.use(router);
 

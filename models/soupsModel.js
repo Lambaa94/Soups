@@ -21,7 +21,8 @@ const soups = {
     },
     delete: function (id, cb) {
         orm.deleteOne("soups", "id", id, function (result) {
-
+            console.log("Im in here")
+            
             cb(result);
         });
     }

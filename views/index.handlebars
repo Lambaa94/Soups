@@ -23,7 +23,7 @@
           </section>
           <section class="col-6 float-right">
 
-            <button data-id="{{id}}" class="btn btn-primary">SLURP IT</button>
+            <button data-id="{{id}}" class="slurpSoupBtn btn-primary">SLURP IT</button>
 
           </section>
 
@@ -66,18 +66,10 @@
 
 
 
-
-
-
-
-
-
-
-
-
 <script type="text/javascript">
 
   $(document).ready(function () {
+    
     // POST/ADD
     $("#addSoupForm").on("submit", function (event) {
       event.preventDefault();
@@ -114,6 +106,30 @@
 
         window.location = "/";
       });
-    })
+    });
+
+   //DELETE
+  $(".deleteSoupBtn").on("click", function(event){
+    event.preventDefault();
+
+    const id = $(this).data("id");
+    console.log(id)
+
+    var deleteSoup = {
+      id: id
+    };
+
+    $.ajax("/api/soups/" + id, {
+      method: "DELETE",
+      data: deleteSoup
+    }).then(
+      function() {
+        console.log("deleted", deleteSoup)
+        
+        window.location = "/";
+      
+      });
   });
+
+});
 </script>
